@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Link} from "react-router-dom";
 import '../../assets/styles/Login.css';
 
@@ -17,7 +17,7 @@ const Login = () => {
                 </div>
                 <input type={"submit"} value={'Login'}/>
                 <div className={'signup-link'}>
-                    Not a member? <Link to={'/about'}>Sign Up</Link>
+                    Not a member? <Link to={'/register'}>Sign Up</Link>
                 </div>
             </form>
         </div>

@@ -18,7 +18,7 @@ const Header = () => {
                     <Link className={'nav-link'} to={'/certificates'}>
                         <div className={'material-icons'}><HomeIcon/></div>
                     </Link>
-                    <Link className={'nav-link'} to={'/about'}>
+                    <Link className={'nav-link'} to={'/checkout'}>
                         <div className={'material-icons'}><ShoppingCartIcon/></div>
                     </Link>
                     <Link id="login-button" className={'nav-link'} to={'/login'}>Login</Link>

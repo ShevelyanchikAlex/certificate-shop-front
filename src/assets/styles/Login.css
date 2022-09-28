@@ -6,6 +6,7 @@
     width: 400px;
     background: white;
     border-radius: 20px;
+    box-shadow: 5px 4px 8px 0 rgba(0, 0, 0, 0.3);
 }
 
 .login-container h1 {

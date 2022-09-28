@@ -10,9 +10,9 @@ const NotFound = () => {
             <div className={'message-container'}>
                 <h2>Sorry, we can't find that page :(</h2>
             </div>
-
-            <button className={'back-home-button'}><Link to={'/certificates'} className={'back-home-link'}>Back
-                Home</Link></button>
+            <button className={'back-home-button'}>
+                <Link to={'/certificates'} className={'back-home-link'}>Back Home</Link>
+            </button>
         </div>
     );
 };

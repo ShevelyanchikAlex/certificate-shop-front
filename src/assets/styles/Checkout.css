@@ -1,0 +1,145 @@
+.checkout-card-container {
+    width: 70%;
+    height: 83%;
+    margin: 1% 15%;
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 5px 4px 8px 0 rgba(0, 0, 0, 0.3);
+}
+
+.checkout-card-header-container {
+    margin: auto;
+    width: 90%;
+    height: 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.checkout-card-header-name {
+    text-align: center;
+    padding: 20px 0 20px 0;
+    border-bottom: 1px solid silver;
+    color: #2691d9;
+}
+
+.header-line {
+    width: 90%;
+}
+
+.scrollable-items-list {
+    padding: 2px;
+    height: 65%;
+    overflow-y: scroll;
+}
+
+.checkout-card-item {
+    margin: auto;
+    width: 90%;
+    height: 30%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.checkout-card-item .image-box {
+    width: 15%;
+    text-align: center;
+}
+
+.checkout-card-item .image {
+    height: 120px;
+    border-radius: 20px;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5);
+}
+
+.checkout-card-item .card-item-info {
+    height: 85%;
+    overflow: hidden;
+    max-width: 30%;
+    text-overflow: ellipsis;
+}
+
+.checkout-card-item .card-price {
+    height: 100%;
+    text-align: right;
+}
+
+.checkout-card-item .amount {
+    padding-top: 30px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #202020;
+}
+
+.checkout-card-item .remove-button {
+    margin-top: 10%;
+    padding: 7px;
+    width: 85px;
+    height: 25%;
+    background: #f16a6a;
+    color: white;
+    border: none;
+    text-decoration: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.8rem;
+    align-content: center;
+    justify-content: center;
+}
+
+.checkout-card-item .remove-button:hover {
+    opacity: 0.7;
+    transition: .5s;
+}
+
+.card-item-line {
+    width: 60%;
+    float: right;
+    margin-right: 5%;
+}
+
+.checkout {
+    float: right;
+    margin-bottom: 2%;
+    margin-right: 5%;
+    width: 30%;
+}
+
+.checkout-total {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.total {
+    padding: 5px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #202020;
+}
+
+.total-amount {
+    padding: 5px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #202020;
+}
+
+.checkout-button {
+    width: 100%;
+    height: 40px;
+    background: #2691d9;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.checkout-button:hover {
+    opacity: 0.7;
+    transition: .5s;
+}

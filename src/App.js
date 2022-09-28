@@ -8,7 +8,7 @@ function App() {
         <div className="App">
             <BrowserRouter>
                 <Header/>
-                <AppRouter className={"fds"}/>
+                <AppRouter/>
             </BrowserRouter>
         </div>
     );

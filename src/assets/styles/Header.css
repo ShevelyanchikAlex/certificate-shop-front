@@ -174,7 +174,7 @@ header {
 }
 
 #login-button {
-    border: 1px solid;
+    border: 2px solid #2691d9;
     background: #2691d9;
     width: 85px;
     border-radius: 20px;
@@ -187,7 +187,8 @@ header {
 }
 
 #login-button:hover {
-    opacity: 0.5;
+    opacity: 0.9;
+    box-shadow: 5px 4px 8px 0 rgba(0, 0, 0, 0.3);
     transition: .5s;
 }
 
@@ -204,6 +205,7 @@ header {
 }
 
 #sign-up-button:hover {
-    opacity: 0.5;
+    opacity: 0.9;
+    box-shadow: 5px 4px 8px 0 rgba(0, 0, 0, 0.3);
     transition: .5s;
 }

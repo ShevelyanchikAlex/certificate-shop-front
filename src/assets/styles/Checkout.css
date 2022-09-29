@@ -1,6 +1,6 @@
 .checkout-card-container {
     width: 80%;
-    height: 650px;
+    height: 620px;
     margin: 1% 10%;
     background-color: #ffffff;
     border-radius: 20px;
@@ -19,7 +19,7 @@
 .scrollable-items-list {
     margin-bottom: 2%;
     padding: 2px;
-    max-height: 450px;
+    max-height: 420px;
     overflow-y: scroll;
 }
 

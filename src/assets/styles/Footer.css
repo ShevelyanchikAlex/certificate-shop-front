@@ -2,7 +2,7 @@ footer {
     height: 3%;
     text-align: center;
     padding: 10px;
-    color: #2691d9;
+    color: #adadad;
     background-color: #ffffff;
     border-top: 1px solid silver;
     position: fixed;
@@ -12,5 +12,5 @@ footer {
 }
 
 .domain-link {
-    color: #2691d9;
+    color: #adadad;
 }

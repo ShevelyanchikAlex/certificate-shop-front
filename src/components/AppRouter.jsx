@@ -6,12 +6,14 @@ import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
 import SignUp from "./pages/register/SignUp";
 import Checkout from "./pages/checkout/Checkout";
+import CertificateItem from "./pages/certificates/CertificateItem";
 
 const AppRouter = () => {
     return (
         <Routes>
             <Route path="/" element={<Certificates/>} exact={true}/>
             <Route path="/certificates" element={<Certificates/>} exact={true}/>
+            <Route path="/certificates/:id" element={<CertificateItem/>} exact={true}/>
             <Route path="/about" element={<About/>} exact={true}/>
             <Route path="/login" element={<Login/>} exact={true}/>
             <Route path="/register" element={<SignUp/>} exact={true}/>

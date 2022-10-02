@@ -1,0 +1,70 @@
+.profile-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 5px 4px 8px 0 rgba(0, 0, 0, 0.3);
+}
+
+.profile-container h1 {
+    text-align: center;
+    padding: 0 0 20px 0;
+    border-bottom: 1px solid silver;
+    color: #2691d9;
+}
+
+.profile-header {
+    padding: 2% 5%;
+    display: flex;
+    align-items: center;
+}
+
+.profile-header .profile-icon {
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+}
+
+.profile-header .profile-name {
+    font-size: 2rem;
+    padding: 0 5%;
+    color: #202020;
+}
+
+.profile-content {
+    padding: 2%;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile-content-item {
+    padding: 0 5%;
+}
+
+.profile-content-item label {
+    font-size: 1rem;
+    color: #9b9999;
+}
+
+.profile-content-item h3 {
+    margin-top: 2%;
+    font-size: 1.7rem;
+    color: #202020;
+}
+
+.profile-content-email {
+    max-width: 400px;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    margin-top: 2%;
+    font-size: 1.7rem;
+    color: #202020;
+}

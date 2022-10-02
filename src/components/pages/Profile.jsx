@@ -21,7 +21,6 @@ const Profile = () => {
                     <label>Role</label>
                     <h3>User</h3>
                 </div>
-
             </div>
         </div>
     );

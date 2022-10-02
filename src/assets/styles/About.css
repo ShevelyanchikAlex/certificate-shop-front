@@ -10,21 +10,28 @@
 }
 
 .about-header {
+    text-align: center;
+    padding: 0 0 20px 0;
+    border-bottom: 1px solid silver;
+    color: #2691d9;
+}
+
+.certificate-shop-main-info {
     display: flex;
     justify-content: center;
     justify-items: center;
     align-items: center;
-    border-bottom: 1px solid #adadad;
 }
 
-.about-header .certificate-shop-logo {
+.certificate-shop-main-info .certificate-shop-logo {
     height: 45px;
     width: 45px;
 }
 
-.about-header .certificate-shop-name {
+.certificate-shop-main-info .certificate-shop-name {
     padding: 0 5%;
-    color: #2691d9;
+    color: #5b5b5b;
+    margin: 0;
 }
 
 .certificate-shop-description {

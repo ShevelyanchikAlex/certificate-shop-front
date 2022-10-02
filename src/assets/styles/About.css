@@ -1,0 +1,35 @@
+.about-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 5px 4px 8px 0 rgba(0, 0, 0, 0.3);
+}
+
+.about-header {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    border-bottom: 1px solid #adadad;
+}
+
+.about-header .certificate-shop-logo {
+    height: 45px;
+    width: 45px;
+}
+
+.about-header .certificate-shop-name {
+    padding: 0 5%;
+    color: #2691d9;
+}
+
+.certificate-shop-description {
+    padding: 0 5%;
+    font-size: 1.5rem;
+    text-align: justify;
+    color: #5b5b5b;
+}

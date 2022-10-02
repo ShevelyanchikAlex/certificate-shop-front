@@ -3,6 +3,7 @@ import {useNavigate} from 'react-router-dom';
 
 const CardItem = (props) => {
     const navigate = useNavigate();
+
     return (
         <div className="card-item">
             <div className="card">
@@ -13,7 +14,9 @@ const CardItem = (props) => {
                 <p className="card-price">${props.certificate.price}</p>
                 <p className="card-description">{props.certificate.description}</p>
                 <p className="tags" hidden key={props.certificate.id}>{props.certificate.tags.map(tag => tag.name)}</p>
-                <button className="card-button-detail" onClick={() => navigate('/certificates/' + props.certificate.id)}>Details</button>
+                <button className="card-button-detail"
+                        onClick={() => navigate('/certificates/' + props.certificate.id)}>Details
+                </button>
                 <button className="card-button-add">Add to Cart</button>
             </div>
         </div>

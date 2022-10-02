@@ -7,7 +7,7 @@ const Footer = () => {
         <footer>
             {'Copyright © '}
             <Link className={'domain-link'} to={'/certificates'}>
-                GiftCertificateShop
+                CertificateShop
             </Link>
             {' ' + new Date().getFullYear() + '.'}
         </footer>

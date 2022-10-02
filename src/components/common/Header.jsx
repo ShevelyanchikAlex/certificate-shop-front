@@ -3,6 +3,7 @@ import {Link} from "react-router-dom";
 import certificateShopLogo from '../../assets/images/shopping-cart.png';
 import HomeIcon from '@mui/icons-material/Home';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import InfoIcon from '@mui/icons-material/Info';
 import '../../assets/styles/Header.css';
 
 const Header = () => {
@@ -17,6 +18,9 @@ const Header = () => {
                 <ul className={'nav-links'}>
                     <Link className={'nav-link'} to={'/certificates'}>
                         <div className={'material-icons'}><HomeIcon/></div>
+                    </Link>
+                    <Link className={'nav-link'} to={'/about'}>
+                        <div className={'material-icons'}><InfoIcon/></div>
                     </Link>
                     <Link className={'nav-link'} to={'/checkout'}>
                         <div className={'material-icons'}><ShoppingCartIcon/></div>

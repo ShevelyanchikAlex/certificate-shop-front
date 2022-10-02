@@ -1,14 +1,15 @@
 import React, {useEffect, useState} from 'react';
 import '../../../assets/styles/CertificateItem.css';
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import CertificateService from "../../../service/CertificateService";
 
 const CertificateItem = () => {
     const params = useParams();
+    const navigate = useNavigate();
     const [certificate, setCertificate] = useState({});
 
     useEffect(() => {
-        const response = CertificateService.getById(params.id)
+        CertificateService.getById(params.id)
             .then(response => setCertificate(response.data))
             .catch(e => console.log(e));
     }, []);
@@ -29,7 +30,7 @@ const CertificateItem = () => {
                         Last Update: {new Date(certificate.lastUpdateDate).toLocaleDateString()}
                     </p>
                     <div id="buttons-column" className="column">
-                        <button id="back-button" onClick="history.back()" className="card-button">Back</button>
+                        <button id="back-button" onClick={() => navigate(-1)} className="card-button">Back</button>
                         <button id="add-button" className="card-button">Add to Cart</button>
                     </div>
                 </div>

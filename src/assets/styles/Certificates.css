@@ -6,6 +6,7 @@
     grid-template-columns: auto auto auto;
     overflow: auto;
     scroll-behavior: smooth;
+    position: relative;
 }
 
 .card-item {
@@ -87,6 +88,12 @@
     opacity: 0.7;
 }
 
+.pagination {
+    text-align: center;
+    align-items: center;
+    justify-items: center;
+}
+
 .scrollButton {
     position: fixed;
     bottom: 60px;
@@ -101,4 +108,28 @@
 
 .scrollButton:hover {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+}
+
+.empty-list-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 5px 4px 8px 0 rgba(0, 0, 0, 0.3);
+}
+
+.empty-list-container .empty-list-image {
+    width: 70%;
+    margin: 5% 15%;
+    text-align: center;
+}
+
+.empty-list-container h2 {
+    padding: 0 2%;
+    text-align: center;
+    font-weight: bold;
+    color: #2691d9;
 }

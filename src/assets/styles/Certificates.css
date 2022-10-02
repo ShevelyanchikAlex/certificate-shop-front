@@ -3,7 +3,8 @@
 }
 
 .items-grid-view {
-    height: 630px;
+    height: 650px;
+    justify-items: center;
     padding-left: 5%;
     padding-right: 5%;
     display: grid;
@@ -92,12 +93,6 @@
     opacity: 0.7;
 }
 
-.pagination {
-    text-align: center;
-    align-items: center;
-    justify-items: center;
-}
-
 .scrollButton {
     position: fixed;
     bottom: 100px;
@@ -140,15 +135,11 @@
 
 .bottom-container {
     display: flex;
-    height: 6.5%;
     width: 100%;
     background: #ffffff;
     position: fixed;
-    bottom: 40px;
+    bottom: 0;
     border-top: 1px solid silver;
-}
-
-.pagination {
-    padding: 5px;
-    margin-left: 35%;
+    justify-content: center;
+    align-items: center;
 }

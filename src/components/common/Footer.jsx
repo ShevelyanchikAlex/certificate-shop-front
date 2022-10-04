@@ -6,7 +6,7 @@ const Footer = () => {
     const {pathname} = useLocation();
 
     return (
-        pathname !== '/certificates' &&
+        pathname !== '/certificates' && pathname !== '/admin' &&
         <footer>
             {'Copyright © '}
             <Link className={'domain-link'} to={'/certificates'}>

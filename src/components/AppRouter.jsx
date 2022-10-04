@@ -8,6 +8,7 @@ import SignUp from "./pages/register/SignUp";
 import Checkout from "./pages/checkout/Checkout";
 import CertificateItem from "./pages/certificates/CertificateItem";
 import Profile from "./pages/Profile";
+import Admin from "./pages/admin/Admin";
 
 const AppRouter = () => {
     return (
@@ -20,6 +21,7 @@ const AppRouter = () => {
             <Route path="/register" element={<SignUp/>} exact={true}/>
             <Route path="/checkout" element={<Checkout/>} exact={true}/>
             <Route path="/profile" element={<Profile/>} exact={true}/>
+            <Route path="/admin" element={<Admin/>} exact={true}/>
             <Route path="*" element={<NotFound/>} exact={true}/>
         </Routes>
     );

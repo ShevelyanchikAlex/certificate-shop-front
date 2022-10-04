@@ -6,10 +6,9 @@ import {Link} from "react-router-dom";
 const NotFound = () => {
     return (
         <div className={'not-found-container'}>
+            <h1 className={'not-found-header'}>Page Not Found</h1>
             <img src={NotFoundImage} className={'not-found-image'} alt={'Not found Image'}/>
-            <div className={'message-container'}>
-                <h2>Sorry, we can't find that page :(</h2>
-            </div>
+            <h3>Sorry, we can't find that page :(</h3>
             <button className={'back-home-button'}>
                 <Link to={'/certificates'} className={'back-home-link'}>Back Home</Link>
             </button>

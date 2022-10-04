@@ -120,17 +120,24 @@
     box-shadow: 5px 4px 8px 0 rgba(0, 0, 0, 0.3);
 }
 
+.empty-list-header {
+    text-align: center;
+    padding: 0 0 20px 0;
+    border-bottom: 1px solid silver;
+    color: #2691d9;
+}
+
 .empty-list-container .empty-list-image {
     width: 70%;
     margin: 5% 15%;
     text-align: center;
 }
 
-.empty-list-container h2 {
+.empty-list-container h3 {
     padding: 0 2%;
     text-align: center;
     font-weight: bold;
-    color: #2691d9;
+    color: #8c8a8a;
 }
 
 .bottom-container {

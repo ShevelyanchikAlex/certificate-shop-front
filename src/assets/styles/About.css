@@ -3,22 +3,31 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 50%;
+    width: 95%;
     background: white;
+    display: flex;
+    padding: 5% 0;
+    align-items: center;
     border-radius: 20px;
     box-shadow: 5px 4px 8px 0 rgba(0, 0, 0, 0.3);
 }
 
 .about-header {
     text-align: center;
-    padding: 0 0 20px 0;
-    border-bottom: 1px solid silver;
+    font-size: 2.5rem;
     color: #2691d9;
 }
 
 .certificate-shop-description {
     padding: 0 5%;
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     text-align: justify;
-    color: #5b5b5b;
+    color: #8c8a8a;
+}
+
+.about-image {
+    align-items: center;
+    justify-items: center;
+    width: 30%;
+    padding: 0 10%;
 }

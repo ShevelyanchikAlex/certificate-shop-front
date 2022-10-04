@@ -4,10 +4,11 @@ import EmptyListImage from '../../../../assets/images/empty-list.png';
 const EmptyList = () => {
     return (
         <div className={'empty-list-container'}>
+            <h1 className={'empty-list-header'}>No Data Found</h1>
             <img className="empty-list-image"
                  src={EmptyListImage}
                  alt="Empty List Image"/>
-            <h2>Oops...<br/> No Data Found :(</h2>
+            <h3>Try reload this Page or adjusting your filter</h3>
         </div>
     );
 };

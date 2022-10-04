@@ -9,23 +9,30 @@
     box-shadow: 5px 4px 8px 0 rgba(0, 0, 0, 0.3);
 }
 
+.not-found-header {
+    text-align: center;
+    padding: 0 0 20px 0;
+    border-bottom: 1px solid silver;
+    color: #2691d9;
+}
+
 .not-found-image {
     align-items: center;
     justify-items: center;
-    width: 500px;
-    height: 400px;
-    padding: 0 50px;
+    width: 400px;
+    height: 300px;
+    padding: 0 17%;
 }
 
-.message-container {
+.not-found-container h3 {
     text-align: center;
     padding: 0 50px;
-    color: #2691d9;
+    color: #8c8a8a;
 }
 
 .back-home-button {
     width: 50%;
-    height: 50px;
+    height: 40px;
     margin-left: 25%;
     margin-right: 25%;
     margin-bottom: 3%;

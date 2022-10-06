@@ -1,10 +1,10 @@
 import React from 'react';
-import '../../../assets/styles/SignUp.css';
+import '../../../../assets/styles/SignUp.css';
 import InputField from "./components/InputField";
 import {useNavigate} from "react-router-dom";
 
 const SignUp = () => {
-    const navigator = useNavigate();
+    const navigate = useNavigate();
 
     return (
         <div className="register-container">
@@ -22,7 +22,7 @@ const SignUp = () => {
                 </div>
                 <div className={'buttons-column'}>
                     <div className={'button'}>
-                        <button type="button" className={'cancel-button'} onClick={() => navigator(-1)}>Back</button>
+                        <button type="button" className={'cancel-button'} onClick={() => navigate(-1)}>Back</button>
                     </div>
                     <div className={'button'}><input className={'register-button'} type="submit" value={'Register'}/>
                     </div>

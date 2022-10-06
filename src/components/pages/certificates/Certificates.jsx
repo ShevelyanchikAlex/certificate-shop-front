@@ -37,7 +37,7 @@ const Certificates = () => {
             : <div>
                 <div className={'certificates-container'}>
                     <div id="items-grid-view" className="items-grid-view">
-                        {certificates.map((certificate, index) =>
+                        {certificates.map((certificate) =>
                             <CardItem
                                 certificate={certificate}
                                 key={certificate.id}

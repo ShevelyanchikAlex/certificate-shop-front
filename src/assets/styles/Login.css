@@ -24,7 +24,7 @@
 .login-container form .txt-field {
     position: relative;
     border-bottom: 2px solid #adadad;
-    margin: 30px 0;
+    margin: 30px 0 20px 0;
 }
 
 .login-container form .txt-field input {
@@ -112,4 +112,10 @@ input[type="submit"]:hover {
 
 .signup-link a:hover {
     text-decoration: underline;
+}
+
+.error-message {
+    padding: 0;
+    margin: 20px 0;
+    color: #FA8072;
 }

@@ -6,6 +6,7 @@ const PaginationComponent = ({page, pageQty, size, pageHandler, sizeHandler}) =>
     return (
         <div className={'bottom-container'}>
             <Pagination
+                color={"primary"}
                 page={page}
                 count={pageQty}
                 onChange={(_, number) => pageHandler(number)}

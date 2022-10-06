@@ -1,8 +1,10 @@
 import axios from "axios";
 
+const API_URL = "http://localhost:8080/certificates";
+
 class CertificateService {
     static async getAll(page = 1, size = 10) {
-        return await axios.get("http://localhost:8080/certificates", {
+        return await axios.get(API_URL, {
             params: {
                 pageIndex: page,
                 size: size,
@@ -11,15 +13,7 @@ class CertificateService {
     }
 
     static async getById(id) {
-        return await axios.get("http://localhost:8080/certificates/" + id);
-    }
-
-    static async login(email) {
-        return await axios.post("http://localhost:8080/login", {
-            email: email,
-            credentials: 'include',
-            method: 'POST',
-        })
+        return await axios.get(`${API_URL}/${id}`);
     }
 }
 

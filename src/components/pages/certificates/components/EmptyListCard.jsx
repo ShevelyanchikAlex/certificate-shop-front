@@ -1,7 +1,7 @@
 import React from 'react';
 import EmptyListImage from '../../../../assets/images/empty-list.png';
 
-const EmptyList = () => {
+const EmptyListCard = () => {
     return (
         <div className={'empty-list-container'}>
             <h1 className={'empty-list-header'}>No Data Found</h1>
@@ -13,4 +13,4 @@ const EmptyList = () => {
     );
 };
 
-export default EmptyList;
+export default EmptyListCard;

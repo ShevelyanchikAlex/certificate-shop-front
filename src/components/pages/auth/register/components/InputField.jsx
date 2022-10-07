@@ -1,9 +1,13 @@
 import React from 'react';
 
-const InputField = ({type, label}) => {
+const InputField = ({type, value, handler, label}) => {
     return (
         <div className={'input-field'}>
-            <input type={type} required/>
+            <input
+                type={type}
+                value={value}
+                onChange={handler}
+                required={true}/>
             <label>{label}</label>
         </div>
     );

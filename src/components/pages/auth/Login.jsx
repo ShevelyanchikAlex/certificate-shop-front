@@ -27,7 +27,7 @@ const Login = () => {
     }
 
     const validateForm = () => {
-        let errorMessages = UserValidator.validateEmailAndPassword(email, password);
+        let errorMessages = UserValidator.validateValuesForLogin(email, password);
         setEmailErrorMessage(errorMessages.emailErrorMessage);
         setPasswordErrorMessage(errorMessages.passwordErrorMessage);
         setIsValid(emailErrorMessage === '' && passwordErrorMessage === '');
@@ -77,7 +77,7 @@ const Login = () => {
                         />
                         <label>Email</label>
                     </div>
-                    <ErrorMessage condition={emailErrorMessage} message={emailErrorMessage}/>
+                    <ErrorMessage message={emailErrorMessage}/>
                     <div className={'txt-field'}>
                         <input
                             type={"password"}
@@ -87,7 +87,7 @@ const Login = () => {
                         />
                         <label>Password</label>
                     </div>
-                    <ErrorMessage condition={passwordErrorMessage} message={passwordErrorMessage}/>
+                    <ErrorMessage message={passwordErrorMessage}/>
                     <input type={"submit"} value={'Login'}/>
                     <div className={'signup-link'}>
                         Not a member? <Link to={'/register'}>Sign Up</Link>

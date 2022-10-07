@@ -138,3 +138,21 @@
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
     transition: .5s;
 }
+
+.error-message {
+    text-align: center;
+}
+
+.alert-container {
+    border-radius: 20px;
+    background: #FA8072;
+    color: #ffffff;
+    margin: 1% 5%;
+}
+
+.alert-message {
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 10px;
+}

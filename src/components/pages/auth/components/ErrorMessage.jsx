@@ -1,9 +1,9 @@
 import React from 'react';
 
-const ErrorMessage = ({condition, message}) => {
+const ErrorMessage = ({message}) => {
     return (
         <div>
-            {condition !== '' && <p className={'error-message'}>{message}</p>}
+            {message !== '' && <p className={'error-message'}>{message}</p>}
         </div>
     );
 };

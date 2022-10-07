@@ -6,6 +6,10 @@ class AuthService {
     static async login(request) {
         return await axios.post(`${API_URL}/login`, request);
     };
+
+    static async signUp(request) {
+        return await axios.post(`${API_URL}/signup`, request);
+    };
 }
 
 export default AuthService;

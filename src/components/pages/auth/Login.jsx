@@ -44,7 +44,7 @@ const Login = () => {
             };
             AuthService.login(authRequest)
                 .then(response => {
-                    localStorage.setItem('user', response.data.email);
+                    localStorage.setItem('user-email', response.data.email);
                     cookies.set("token", response.data.token,
                         {
                             path: "/",

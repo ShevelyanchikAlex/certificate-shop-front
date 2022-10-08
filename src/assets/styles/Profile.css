@@ -25,13 +25,14 @@
 .profile-header .profile-icon {
     height: 70px;
     width: 70px;
+    color: #666666;
     border-radius: 50%;
 }
 
 .profile-header .profile-name {
     font-size: 2rem;
     padding: 0 5%;
-    color: #202020;
+    color: #666666;
 }
 
 .profile-content {
@@ -53,7 +54,7 @@
 .profile-content-item h3 {
     margin-top: 2%;
     font-size: 1.7rem;
-    color: #202020;
+    color: #666666;
 }
 
 .profile-content-email {

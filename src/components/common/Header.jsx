@@ -1,12 +1,25 @@
-import React from 'react';
-import {Link} from "react-router-dom";
-import certificateShopLogo from '../../assets/images/shopping-cart.png';
+import React, {useEffect, useState} from 'react';
+import {Link, useNavigate} from "react-router-dom";
+import certificateShopLogo from '../../assets/images/logo.png';
 import HomeIcon from '@mui/icons-material/Home';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import InfoIcon from '@mui/icons-material/Info';
 import '../../assets/styles/Header.css';
+import AuthNavLinks from "./navbar/AuthNavLinks";
+import UnAuthNavLinks from "./navbar/UnAuthNavLinks";
+import AuthService from "../../service/AuthService";
 
 const Header = () => {
+    const navigate = useNavigate();
+
+    const handleLogout = async (e) => {
+        e.preventDefault();
+        AuthService.logout()
+            .then(() => {
+                navigate('/login');
+            })
+            .catch(e => console.log(e.response.status));
+    };
+
     return (
         <header>
             <div className={'logo'}>
@@ -22,11 +35,7 @@ const Header = () => {
                     <Link className={'nav-link'} to={'/about'}>
                         <div className={'material-icons'}><InfoIcon/></div>
                     </Link>
-                    <Link className={'nav-link'} to={'/checkout'}>
-                        <div className={'material-icons'}><ShoppingCartIcon/></div>
-                    </Link>
-                    <Link id="login-button" className={'nav-link'} to={'/login'}>Login</Link>
-                    <Link id="sign-up-button" className={'nav-link'} to={'/register'}>Sign Up</Link>
+                    {localStorage.getItem("user-email") ? <AuthNavLinks handleLogout={handleLogout}/> : <UnAuthNavLinks/>}
                 </ul>
             </nav>
         </header>

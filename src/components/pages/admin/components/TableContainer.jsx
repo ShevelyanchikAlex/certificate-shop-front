@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import PaginationComponent from "../../certificates/components/PaginationComponent";
 import CertificatesTable from "./CertificatesTable";
+import UsersTable from "./UsersTable";
+import {Link} from "react-router-dom";
 
 const TableContainer = () => {
     const [page, setPage] = useState(1);
@@ -13,8 +15,8 @@ const TableContainer = () => {
 
     return (
         <div>
-            <CertificatesTable page={page} size={size}/>
-            {/*<UsersTable/>*/}
+            {/*<CertificatesTable page={page} size={size}/>*/}
+            <UsersTable page={page} size={size}/>
             <PaginationComponent
                 page={page}
                 pageQty={pageQty}

@@ -6,6 +6,7 @@ import ErrorMessage from "./components/ErrorMessage";
 import UserValidator from "../../../validator/UserValidator";
 import {Cookies} from "react-cookie"
 import Alert from "./components/Alert";
+import UserService from "../../../service/UserService";
 
 const Login = () => {
     const cookies = new Cookies();
@@ -51,6 +52,8 @@ const Login = () => {
                             sameSite: "strict",
                             maxAge: 604800
                         });
+                    UserService.getUserByEmail(response.data.email)
+                        .then(response => localStorage.setItem('user-role', response.data.role));
                     navigate('/certificates');
                 })
                 .catch(e => {

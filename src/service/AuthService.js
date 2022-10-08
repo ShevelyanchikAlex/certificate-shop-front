@@ -16,6 +16,7 @@ class AuthService {
     static async logout() {
         cookies.remove("token", {path: '/'});
         localStorage.removeItem("user-email");
+        localStorage.removeItem("user-role");
     }
 }
 

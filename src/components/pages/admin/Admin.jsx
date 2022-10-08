@@ -1,14 +1,15 @@
 import React, {useEffect, useState} from 'react';
 import '../../../assets/styles/Admin.css';
 import TableContainer from "./components/TableContainer";
-import UserService from "../../../service/UserService";
 import Forbidden from "../Forbidden";
+import UserService from "../../../service/UserService";
 import LoadingSpinner from "../certificates/components/LoadingSpinner";
 
-const Admin = () => {
+const Admin = ({tableName}) => {
     const ADMIN_ROLE = 'ADMIN';
-    const [isLoading, setIsLoading] = useState(false);
+
     const [role, setRole] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
         setIsLoading(true);
@@ -23,10 +24,9 @@ const Admin = () => {
 
     return (
         isLoading ? <LoadingSpinner/>
-            : (role === ADMIN_ROLE
+            : ((role && role === ADMIN_ROLE)
                 ? <div className={'admin-table-container'}>
-                    <h1 className={'table-container-header'}>Certificates</h1>
-                    <TableContainer/>
+                    <TableContainer tableName={tableName}/>
                 </div>
                 : <Forbidden/>)
     );

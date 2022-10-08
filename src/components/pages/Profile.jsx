@@ -18,7 +18,7 @@ const Profile = () => {
         UserService.getUserByEmail(localStorageEmail)
             .then(response => {
                 setIsAuth(true);
-                setEmail(localStorageEmail);
+                setEmail(response.data.email);
                 setUserName(response.data.name);
                 setRole(response.data.role);
                 setIsLoading(false);

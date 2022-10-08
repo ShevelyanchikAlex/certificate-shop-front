@@ -21,7 +21,8 @@ const AppRouter = () => {
             <Route path="/register" element={<SignUp/>} exact={true}/>
             <Route path="/checkout" element={<Checkout/>} exact={true}/>
             <Route path="/profile" element={<Profile/>} exact={true}/>
-            <Route path="/admin" element={<Admin/>} exact={true}/>
+            <Route path="/admin/certificates" element={<Admin tableName={'CERTIFICATES'}/>} exact={true}/>
+            <Route path="/admin/users" element={<Admin tableName={'USERS'}/>} exact={true}/>
             <Route path="*" element={<NotFound/>} exact={true}/>
         </Routes>
     );

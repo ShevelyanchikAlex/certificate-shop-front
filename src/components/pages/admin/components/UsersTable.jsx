@@ -25,7 +25,7 @@ const UsersTable = ({page, size}) => {
             </thead>
             <tbody>
             {users.map(user =>
-                <tr>
+                <tr key={user.id}>
                     <td>{user.id}</td>
                     <td>{user.name}</td>
                     <td>{user.email}</td>
@@ -34,8 +34,6 @@ const UsersTable = ({page, size}) => {
                     <td>
                         <div className={'action-container'}>
                             <ActionButton buttonsClassName={'view-btn'} name={'View'}/>
-                            <ActionButton buttonsClassName={'edit-btn'} name={'Edit'}/>
-                            <ActionButton buttonsClassName={'delete-btn'} name={'Delete'}/>
                         </div>
                     </td>
                 </tr>

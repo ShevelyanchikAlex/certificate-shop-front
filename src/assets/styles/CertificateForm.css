@@ -1,0 +1,268 @@
+.modal-form-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 5px 4px 8px 0 rgba(0, 0, 0, 0.3);
+}
+
+.modal-form-container h1 {
+    text-align: center;
+    padding: 0 0 20px 0;
+    border-bottom: 1px solid silver;
+    color: #2691d9;
+}
+
+.modal-form-container form {
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.modal-form-container form .column {
+    float: left;
+    width: 50%;
+}
+
+.modal-form-container form .input-field {
+    position: relative;
+    border-bottom: 2px solid #adadad;
+    margin: 30px;
+}
+
+.modal-form-container form .input-field input {
+    width: 100%;
+    padding: 0 5px;
+    height: 40px;
+    font-size: 1rem;
+    border: none;
+    background: none;
+    outline: none;
+}
+
+.modal-form-container form .input-field label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    color: #adadad;
+    transform: translateY(-50%);
+    font-size: 1rem;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.modal-form-container form .input-field span::before {
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #2691d9;
+    transition: .5s;
+}
+
+.modal-form-container form input:focus ~ label,
+.modal-form-container form input:valid ~ label {
+    top: -5px;
+    color: #2691d9;
+}
+
+.modal-form-container form input:focus ~ span::before,
+.modal-form-container form input:valid ~ span::before {
+    width: 100%;
+}
+
+.buttons-column {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
+
+.button {
+    text-align: center;
+    float: right;
+    margin: 3%;
+}
+
+.save-button {
+    float: right;
+    width: 110px;
+    height: 50px;
+    border: 1px solid #2691d9;
+    background: #2691d9;
+    border-radius: 20px;
+    font-size: 1.2rem;
+    color: #e9f4fb;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+    padding: 10px;
+}
+
+.save-button:hover {
+    opacity: 0.9;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+    transition: .5s;
+}
+
+.cancel-button {
+    border: 1px solid #2691d9;
+    border-radius: 20px;
+    padding: 10px;
+    color: #2691d9;
+    background-color: #fff;
+    text-align: center;
+    cursor: pointer;
+    margin: 0 2%;
+    float: left;
+    width: 110px;
+    height: 50px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    outline: none;
+    text-decoration: none;
+}
+
+.cancel-button:hover {
+    opacity: 0.9;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+    transition: .5s;
+}
+
+.error-message {
+    text-align: center;
+}
+
+.alert-container {
+    border-radius: 20px;
+    background: #FA8072;
+    color: #ffffff;
+    margin: 1% 5%;
+}
+
+.alert-message {
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.tags-container {
+    padding: 0 30px;
+}
+
+.tag-label {
+    display: flex;
+    justify-content: center;
+    color: #2691d9;
+}
+
+.ReactTags__tagInput {
+    color: #9b9999;
+    position: relative;
+    border-bottom: 2px solid #adadad;
+    margin: 30px 0;
+}
+
+.ReactTags__tagInput input.ReactTags__tagInputField::placeholder {
+    left: 5px;
+    color: #adadad;
+    font-size: 1rem;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.ReactTags__tagInput input.ReactTags__tagInputField {
+    width: 100%;
+    padding: 0 5px;
+    height: 40px;
+    font-size: 1rem;
+    border: none;
+    background: none;
+    outline: none;
+}
+
+.ReactTags__tagInput label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    color: #adadad;
+    transform: translateY(-50%);
+    font-size: 1rem;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.ReactTags__editInput {
+    color: #FA8072;
+    border-radius: 1px;
+}
+
+.ReactTags__editTagInput {
+    display: inline-flex;
+}
+
+/* Styles for selected tags */
+.ReactTags__selected span.ReactTags__tag {
+    border: 1px solid #2691d9;
+    border-radius: 10px;
+    background: #2691d9;
+    color: white;
+    font-size: 1rem;
+    display: inline-block;
+    padding: 5px;
+    margin: 2px 5px;
+    box-shadow: 5px 4px 8px 0 rgba(0, 0, 0, 0.3);
+}
+
+.ReactTags__selected a.ReactTags__remove {
+    color: #aaa;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.ReactTags__suggestions {
+    position: absolute;
+}
+
+.ReactTags__suggestions ul {
+    list-style-type: none;
+    box-shadow: 0.05em 0.01em 0.5em rgba(0, 0, 0, 0.2);
+    background: white;
+    width: 200px;
+}
+
+.ReactTags__suggestions li {
+    border-bottom: 1px solid #ddd;
+    padding: 5px 10px;
+    margin: 0;
+}
+
+.ReactTags__suggestions li mark {
+    text-decoration: underline;
+    background: none;
+    font-weight: 600;
+}
+
+.ReactTags__suggestions ul li.ReactTags__activeSuggestion {
+    background: #b7cfe0;
+    cursor: pointer;
+}
+
+.ReactTags__remove {
+    margin-left: 5px;
+    border: 1px solid #ffffff;
+    border-radius: 50%;
+    cursor: pointer;
+    background: none;
+    color: white;
+}

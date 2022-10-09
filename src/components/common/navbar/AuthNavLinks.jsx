@@ -15,7 +15,6 @@ const AuthNavLinks = ({handleLogout}) => {
             .then(response => {
                 setRole(response.data.role);
             });
-        console.log('upd')
     }, []);
 
     return (

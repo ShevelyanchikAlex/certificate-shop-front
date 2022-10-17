@@ -6,6 +6,7 @@ import CertificatesService from "../../../service/CertificateService";
 import '../../../assets/styles/Certificates.css';
 import PaginationComponent from "./components/PaginationComponent";
 import LoadingSpinner from "./components/LoadingSpinner";
+import CertificateDefault from "../../../assets/images/certificate-default.png";
 
 const Certificates = () => {
     const [certificates, setCertificates] = useState([]);
@@ -49,7 +50,7 @@ const Certificates = () => {
                                 <CardItem
                                     certificate={certificate}
                                     key={certificate.id}
-                                    image={"https://daroo.by/media/cache/new_catalog_image_big_preview/images.daroo.gift/daroo.by/gallery/productbanner/38/2015/12/11/566a8f04709b6.jpg"}
+                                    image={CertificateDefault}
                                 />
                             )}
                         </div>

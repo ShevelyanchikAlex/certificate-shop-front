@@ -9,6 +9,7 @@ import Alert from "./components/Alert";
 import UserService from "../../../service/UserService";
 
 const Login = () => {
+    const ADMIN_ROLE = 'ADMIN';
     const cookies = new Cookies();
     const navigate = useNavigate();
 
@@ -53,8 +54,10 @@ const Login = () => {
                             maxAge: 604800
                         });
                     UserService.getUserByEmail(response.data.email)
-                        .then(response => localStorage.setItem('user-role', response.data.role));
-                    navigate('/certificates');
+                        .then(response => {
+                            localStorage.setItem('user-role', response.data.role);
+                            response.data.role === ADMIN_ROLE ? navigate('/admin/certificates') : navigate('/certificates');
+                        });
                 })
                 .catch(e => {
                     console.log(e.response.status)

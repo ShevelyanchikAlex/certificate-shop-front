@@ -1,7 +1,6 @@
 .admin-table-container {
     position: relative;
     overflow: auto;
-    white-space: nowrap;
     width: 100%;
     height: 800px;
     justify-content: center;
@@ -9,10 +8,35 @@
 }
 
 .table-container-header {
+    display: flex;
+    justify-content: space-around;
+}
+
+.add-certificate-button {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin: 5px 0;
+    border: 1px solid #2691d9;
+    background: #2691d9;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    color: #e9f4fb;
+    cursor: pointer;
+    outline: none;
+    padding: 10px;
+}
+
+.add-certificate-button:hover {
+    opacity: 0.9;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+    transition: .5s;
+}
+
+.table-container-header-title {
     text-align: center;
     padding: 0.5% 0;
     margin: 0;
-    border-bottom: 1px solid silver;
     color: #2691d9;
 }
 
@@ -72,6 +96,12 @@ tbody td, thead th, thead th:last-child {
 .table tbody tr.active-row {
     font-weight: bold;
     color: #2691d9;
+}
+
+.none-label {
+    display: flex;
+    justify-content: center;
+    padding: 5px;
 }
 
 .action-container {

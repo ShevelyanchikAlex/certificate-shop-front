@@ -47,6 +47,7 @@
     display: -webkit-box;
     -webkit-box-orient: vertical;
     font-size: 1.5rem;
+    color: #666666;
 }
 
 .card-price {
@@ -62,6 +63,7 @@
     display: -webkit-box;
     -webkit-box-orient: vertical;
     font-size: 1rem;
+    color: #666666;
 }
 
 .card-button-detail {

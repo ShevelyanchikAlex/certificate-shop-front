@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import '../../../assets/styles/CertificateItem.css';
 import {useNavigate, useParams} from "react-router-dom";
 import CertificateService from "../../../service/CertificateService";
+import CertificateDefault from "../../../assets/images/certificate-default.png";
 
 const CertificateItem = () => {
     const params = useParams();
@@ -19,8 +20,8 @@ const CertificateItem = () => {
             <div className="card">
                 <div className="column">
                     <img className="card-image"
-                         src="https://daroo.by/media/cache/new_catalog_image_big_preview/images.daroo.gift/daroo.by/gallery/productbanner/298/2016/01/18/569cca9b733ec.jpg"
-                         alt="Denim Jeans"/>
+                         src={CertificateDefault}
+                         alt="Certificate Image"/>
                 </div>
                 <div className="column">
                     <h1 className="card-item-name">{certificate.name}</h1>

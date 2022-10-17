@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from "../../../../../assets/styles/Modal.module.css";
 
-const ModalForm = ({children, visible, setVisible}) => {
+const Modal = ({children, visible, setVisible}) => {
     const rootClasses = [classes.modalForm];
     if (visible) {
         rootClasses.push(classes.active);
@@ -16,4 +16,4 @@ const ModalForm = ({children, visible, setVisible}) => {
     );
 };
 
-export default ModalForm;
+export default Modal;

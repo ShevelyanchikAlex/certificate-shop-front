@@ -1,5 +1,6 @@
 header {
     display: flex;
+    justify-content: space-between;
     clear: both;
     background: #fff;
     top: 0;
@@ -46,121 +47,6 @@ header {
     transition: .5s;
 }
 
-.search-box-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    width: 40%;
-    padding: 10px 10px;
-}
-
-.search-box {
-    display: flex;
-    width: 80%;
-}
-
-.search-form-input {
-    background: #efefef;
-    appearance: none;
-    position: relative;
-    width: 65%;
-    padding: 5px 20px 5px 40px;
-    border: none;
-    border-radius: 20px 0 0 20px;
-    color: #8c8a8a;
-    font-size: 1.1rem;
-}
-
-.dropdown {
-    position: relative;
-    width: 35%;
-    border: none;
-}
-
-.dropdown::after {
-    position: absolute;
-    width: 8px;
-    height: 8px;
-    right: 5px;
-    top: 15px;
-    z-index: 10000;
-    background: #efefef;
-    border: 2px solid #8c8a8a;;
-    border-top: 2px solid #efefef;
-    border-right: 2px solid #efefef;
-    transform: rotate(-45deg);
-    transition: .5s;
-    pointer-events: none;
-    content: '';
-}
-
-
-.dropdown::before {
-    position: absolute;
-    top: 5px;
-    left: 0;
-    z-index: 999;
-    width: 1px;
-    height: 36px;
-    background-color: #aaa;
-    content: '';
-}
-
-.dropdown.active::after {
-    top: 25px;
-    transform: rotate(-225deg);
-}
-
-.dropdown input {
-    top: 0;
-    left: 0;
-    width: 100%;
-    cursor: pointer;
-    background: #efefef;
-    border: none;
-    padding: 15px;
-    border-radius: 0 20px 20px 0;
-    list-style: none;
-    color: #8c8a8a;
-    font-size: 1.1rem;
-    justify-content: center;
-}
-
-.dropdown.active .input::before {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    content: '';
-}
-
-.dropdown .option {
-    position: absolute;
-    top: 70px;
-    width: 100%;
-    background: #efefef;
-    box-shadow: 0 30px 30px rgba(0, 0, 0, 0.05);
-    border-radius: 20px;
-    overflow: hidden;
-    display: none;
-}
-
-.dropdown.active .option {
-    display: block;
-}
-
-.dropdown .option div {
-    padding: 12px 20px;
-    cursor: pointer;
-}
-
-.dropdown .option div:hover {
-    background: #2691d9;
-    color: #fff;
-}
-
 .nav-links {
     align-items: center;
     justify-content: space-around;
@@ -181,7 +67,7 @@ header {
     border: 2px solid #2691d9;
     background: #2691d9;
     width: 85px;
-    border-radius: 20px;
+    border-radius: 15px;
     font-size: 1.2rem;
     color: #e9f4fb;
     font-weight: 700;
@@ -200,7 +86,7 @@ header {
     border: 2px solid #2691d9;
     color: #2691d9;
     width: 85px;
-    border-radius: 20px;
+    border-radius: 15px;
     font-size: 1.2rem;
     font-weight: 700;
     cursor: pointer;

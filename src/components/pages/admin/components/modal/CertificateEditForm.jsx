@@ -1,37 +1,68 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
+import CertificateValidator from "../../../../../validator/CertificateValidator";
+import ModalFormAlert from "./components/ModalFormAlert";
 import ModalInputField from "./components/ModalInputField";
 import ModalFormErrorMessage from "./components/ModalFormErrorMessage";
-import ModalFormAlert from "./components/ModalFormAlert";
-import {WithContext as ReactTags} from 'react-tag-input';
-import CertificateValidator from "../../../../../validator/CertificateValidator";
+import {WithContext as ReactTags} from "react-tag-input";
 import '../../../../../assets/styles/CertificateForm.css';
+import CertificateService from "../../../../../service/CertificateService";
 
-const CertificateForm = () => {
+const CertificateEditForm = ({setVisible, certificateData, setIsRefresh}) => {
     const [isValid, setIsValid] = useState(false);
     const [showAlert, setShowAlert] = useState(false);
     const [certificate, setCertificate] = useState({
-        id: 0, name: '', description: '',
-        price: 0, duration: 1, createDate: Date.now(), lastUpdateDate: Date.now(), tags: []
+        id: 0, name: '', description: '', price: 1, duration: 0, tags: []
     });
+    const [tags, setTags] = useState([]);
     const [nameErrorMessage, setNameErrorMessage] = useState('');
     const [descriptionErrorMessage, setDescriptionErrorMessage] = useState('');
     const [priceErrorMessage, setPriceErrorMessage] = useState('');
     const [durationErrorMessage, setDurationErrorMessage] = useState('');
     const [tagsErrorMessage, setTagsErrorMessage] = useState('');
 
+    useEffect(() => {
+        if (certificateData) {
+            setCertificate({
+                id: certificateData.id, name: certificateData.name, description: certificateData.description,
+                price: certificateData.price, duration: certificateData.duration, tags: certificateData.tags
+            });
+            setTags(
+                certificateData.tags.map(tag => {
+                    return {
+                        id: tag.name,
+                        text: tag.name
+                    };
+                })
+            );
+        }
+
+    }, [setVisible, certificateData]);
+
     const handleTagDelete = i => {
-        setCertificate({...certificate, tags: certificate.tags.filter((tag, index) => index !== i)});
+        setTags(tags.filter((tag, index) => index !== i));
+        mapTagInCertificate();
     };
 
     const handleTagAdd = tag => {
-        setCertificate({...certificate, tags: [...certificate.tags, tag]});
+        setTags([...tags, tag]);
+        mapTagInCertificate();
     };
 
+    const mapTagInCertificate = () => {
+        setCertificate({
+            ...certificate, tags: tags.map(tag => {
+                return {
+                    name: tag.text
+                };
+            })
+        });
+    }
+
     const handleTagDrag = (tag, currPos, newPos) => {
-        const newTags = certificate.tags.slice();
+        const newTags = tags.slice();
         newTags.splice(currPos, 1);
         newTags.splice(newPos, 0, tag);
-        setCertificate({...certificate, tags: [...certificate.tags, newTags]});
+        setTags(newTags);
     };
 
     const handleNameChange = (event) => {
@@ -50,9 +81,19 @@ const CertificateForm = () => {
         setCertificate({...certificate, duration: event.target.value});
     }
 
+    const handleCloseForm = () => {
+        setNameErrorMessage('');
+        setDescriptionErrorMessage('');
+        setPriceErrorMessage('');
+        setDurationErrorMessage('');
+        setTagsErrorMessage('');
+        setShowAlert(false);
+        setVisible(false);
+    }
+
     const validateForm = () => {
         let errorMessages = CertificateValidator.validateCertificate(certificate.name, certificate.description,
-            certificate.price, certificate.duration, certificate.tags);
+            certificate.price, certificate.duration, tags);
         setNameErrorMessage(errorMessages.nameErrorMessage);
         setDescriptionErrorMessage(errorMessages.descriptionErrorMessage);
         setPriceErrorMessage(errorMessages.priceErrorMessage);
@@ -60,16 +101,38 @@ const CertificateForm = () => {
         setTagsErrorMessage(errorMessages.tagErrorMessage);
         setIsValid(nameErrorMessage === '' && descriptionErrorMessage === ''
             && priceErrorMessage === '' && durationErrorMessage === '' && tagsErrorMessage === '');
+        setShowAlert(false);
+    }
+
+    const getRequestCertificate = () => {
+        return (certificateData.name !== certificate.name) ? certificate
+            : {
+                id: certificate.id, description: certificate.description, price: certificate.price,
+                duration: certificate.duration, tags: certificate.tags
+            };
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         validateForm();
+        if (isValid) {
+            const request = getRequestCertificate();
+            CertificateService.update(request)
+                .then(() => {
+                    handleCloseForm();
+                    setIsRefresh(true);
+                })
+                .catch(e => {
+                    if (e.response.status === 400) {
+                        setShowAlert(true);
+                    }
+                });
+        }
     };
 
     return (
         <div className="modal-form-container">
-            <h1>Add Certificate</h1>
+            <h1>Edit Certificate with id={certificate.id}</h1>
             <ModalFormAlert condition={showAlert} message={'Certificate with same title exist. Try change title.'}/>
             <form method="post" onSubmit={handleSubmit}>
                 <div className={'row'}>
@@ -93,7 +156,7 @@ const CertificateForm = () => {
                 <div className={'tags-container'}>
                     <label className={'tag-label'}>Tags</label>
                     <ReactTags
-                        tags={certificate.tags}
+                        tags={tags}
                         handleDelete={handleTagDelete}
                         handleAddition={handleTagAdd}
                         handleDrag={handleTagDrag}
@@ -104,12 +167,11 @@ const CertificateForm = () => {
                 <ModalFormErrorMessage message={tagsErrorMessage}/>
                 <div className={'buttons-column'}>
                     <div className={'button'}>
-                        <button type="button" className={'cancel-button'} onClick={() => {
-                        }}>Cancel
+                        <button type="button" className={'cancel-button'} onClick={() => handleCloseForm()}>Cancel
                         </button>
                     </div>
                     <div className={'button'}>
-                        <button className={'register-button'} type="submit">Save</button>
+                        <button className={'register-button'} type="submit">Edit</button>
                     </div>
                 </div>
             </form>
@@ -117,4 +179,4 @@ const CertificateForm = () => {
     );
 };
 
-export default CertificateForm;
+export default CertificateEditForm;

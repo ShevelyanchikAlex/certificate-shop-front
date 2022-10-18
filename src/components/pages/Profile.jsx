@@ -4,27 +4,32 @@ import UserService from "../../service/UserService";
 import LoadingSpinner from "./certificates/components/LoadingSpinner";
 import Forbidden from "./Forbidden";
 import '../../assets/styles/Profile.css';
+import {useDispatch, useSelector} from "react-redux";
+import {setEmail, setIsAuth, setRole, setUserName} from "../../store/user/UserAction";
 
 const Profile = () => {
-    const [userName, setUserName] = useState('');
-    const [email, setEmail] = useState('');
-    const [role, setRole] = useState('');
+    const userName = useSelector(state => state.userData.userName);
+    const email = useSelector(state => state.userData.email);
+    const role = useSelector(state => state.userData.role);
+    const isAuth = useSelector(state => state.userData.isAuth);
     const [isLoading, setIsLoading] = useState(false);
-    const [isAuth, setIsAuth] = useState(false);
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        setIsLoading(true);
+        changeIsLoadingHandler(true)
         const localStorageEmail = localStorage.getItem("user-email");
         UserService.getUserByEmail(localStorageEmail)
             .then(response => {
-                setIsAuth(true);
-                setEmail(response.data.email);
-                setUserName(response.data.name);
-                setRole(response.data.role);
-                setIsLoading(false);
+                dispatch(setIsAuth(true));
+                dispatch(setEmail(response.data.email));
+                dispatch(setUserName(response.data.name));
+                dispatch(setRole(response.data.role));
+                changeIsLoadingHandler(false)
             })
-            .catch(() => setIsLoading(false));
+            .catch(() => changeIsLoadingHandler(false));
     }, []);
+
+    const changeIsLoadingHandler = (isLoading) => setIsLoading(isLoading);
 
     return (
         isLoading ? <LoadingSpinner/>

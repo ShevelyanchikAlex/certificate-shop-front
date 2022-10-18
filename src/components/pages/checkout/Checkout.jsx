@@ -3,6 +3,10 @@ import '../../../assets/styles/Checkout.css';
 import CheckoutCardItem from "./components/CardItem";
 import TotalAmount from "./components/TotalAmount";
 
+/**
+ * This is template Component. Business logic will be added here in the near future.
+ * @returns {JSX.Element}
+ */
 const Checkout = () => {
     return (
         <div className="checkout-card-container">

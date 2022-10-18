@@ -48,6 +48,16 @@ class UserService {
             }
         );
     };
+
+    static async getCount() {
+        return await axios.get(`${API_URL}/count`,
+            {
+                headers: {
+                    'Authorization': cookies.get("token"),
+                }
+            }
+        );
+    };
 }
 
 export default UserService;

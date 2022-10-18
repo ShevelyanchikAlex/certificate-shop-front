@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {Pagination} from "@mui/material";
 import PageSizeSelector from "./PageSizeSelector";
 import {useDispatch, useSelector} from "react-redux";
@@ -8,10 +8,6 @@ const PaginationComponent = () => {
     const page = useSelector(state => state.paginationData.page);
     const pageQty = useSelector(state => state.paginationData.pageQty);
     const dispatch = useDispatch();
-
-    useEffect(() => {
-        dispatch(setPage(1));
-    }, [])
 
     return (
         <div className={'bottom-container'}>

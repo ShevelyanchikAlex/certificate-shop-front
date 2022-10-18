@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import UsersTable from "./UsersTable";
 import CertificatesTable from "./CertificatesTable";
 

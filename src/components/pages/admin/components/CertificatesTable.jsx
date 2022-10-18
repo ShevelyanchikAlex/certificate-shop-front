@@ -13,9 +13,11 @@ import SearchBox from "./SearchBox";
 import {useDispatch, useSelector} from "react-redux";
 import * as adminActions from "../../../../store/admin/AdminAction";
 import PaginationComponent from "../../certificates/components/PaginationComponent";
-import {setPageQtyWithParams} from "../../../../store/pagination/PaginationAction";
+import {setPage, setPageQtyWithParams} from "../../../../store/pagination/PaginationAction";
+import {setPageRefresh} from "../../../../store/admin/AdminAction";
 
 const CertificatesTable = () => {
+    const FIRST_PAGE = 1;
     const certificates = useSelector(state => state.adminData.certificates);
     const filteredCertificates = useSelector(state => state.adminData.filteredCertificates);
     const selectedCertificate = useSelector(state => state.adminData.selectedCertificate);
@@ -33,14 +35,19 @@ const CertificatesTable = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
+        dispatch(setPage(FIRST_PAGE));
+    }, []);
+
+    useEffect(() => {
+        dispatch(setPageRefresh(false));
         CertificatesService.getAll(page, size)
             .then(response => {
-                dispatch(adminActions.setCertificates(response.data._embedded.giftCertificates));
+                dispatch(adminActions.setCertificates(response.data._embedded.giftCertificates, ascSortDirection));
                 dispatch(adminActions.setFilteredCertificates(searchTerm, certificates, selectedOpinion));
                 dispatch(adminActions.setPageRefresh(false));
             })
             .catch(e => console.log(e));
-    }, [page, size, isPageRefresh]);
+    }, [page, size, isPageRefresh, ascSortDirection]);
 
     useEffect(() => {
         CertificatesService.getCount()
@@ -67,7 +74,6 @@ const CertificatesTable = () => {
                 setVisible={setAddCertificateModalVisible}>
                 <CertificateAddForm
                     setVisible={setAddCertificateModalVisible}
-                    setIsRefresh={isPageRefresh}
                 />
             </Modal>
             <Modal
@@ -76,7 +82,6 @@ const CertificatesTable = () => {
                 <CertificateEditForm
                     setVisible={setEditCertificateModalVisible}
                     certificateData={selectedCertificate}
-                    setIsRefresh={isPageRefresh}
                 />
             </Modal>
             <Modal
@@ -93,7 +98,6 @@ const CertificatesTable = () => {
                 <CertificateDeleteModal
                     setVisible={setDeleteCertificateModalVisible}
                     id={selectedCertificate.id}
-                    setIsRefresh={isPageRefresh}
                 />
             </Modal>
 

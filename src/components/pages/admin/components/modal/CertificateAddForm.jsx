@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import ModalInputField from "./components/ModalInputField";
 import ModalFormErrorMessage from "./components/ModalFormErrorMessage";
 import ModalFormAlert from "./components/ModalFormAlert";
@@ -6,8 +6,10 @@ import {WithContext as ReactTags} from 'react-tag-input';
 import CertificateValidator from "../../../../../validator/CertificateValidator";
 import CertificateService from "../../../../../service/CertificateService";
 import '../../../../../assets/styles/CertificateForm.css';
+import {useDispatch} from "react-redux";
+import {setPageRefresh} from "../../../../../store/admin/AdminAction";
 
-const CertificateAddForm = ({setVisible, setIsRefresh}) => {
+const CertificateAddForm = ({setVisible}) => {
     const [isValid, setIsValid] = useState(false);
     const [showAlert, setShowAlert] = useState(false);
     const [certificate, setCertificate] = useState({
@@ -19,6 +21,12 @@ const CertificateAddForm = ({setVisible, setIsRefresh}) => {
     const [priceErrorMessage, setPriceErrorMessage] = useState('');
     const [durationErrorMessage, setDurationErrorMessage] = useState('');
     const [tagsErrorMessage, setTagsErrorMessage] = useState('');
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        setTags(tags);
+        mapTagInCertificate();
+    }, [tags]);
 
     const handleTagDelete = i => {
         setTags(tags.filter((tag, index) => index !== i));
@@ -31,13 +39,7 @@ const CertificateAddForm = ({setVisible, setIsRefresh}) => {
     };
 
     const mapTagInCertificate = () => {
-        setCertificate({
-            ...certificate, tags: tags.map(tag => {
-                return {
-                    name: tag.text
-                };
-            })
-        });
+        setCertificate({...certificate, tags: tags.map((tag) => ({name: tag.text}))});
     }
 
     const handleTagDrag = (tag, currPos, newPos) => {
@@ -96,12 +98,13 @@ const CertificateAddForm = ({setVisible, setIsRefresh}) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        mapTagInCertificate();
         validateForm();
         if (isValid) {
             CertificateService.save(certificate)
                 .then(() => {
                     handleCloseForm();
-                    setIsRefresh(true);
+                    dispatch(setPageRefresh(true));
                 })
                 .catch(e => {
                     if (e.response.status === 400) {

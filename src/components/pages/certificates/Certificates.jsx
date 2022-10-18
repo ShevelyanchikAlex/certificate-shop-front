@@ -7,13 +7,20 @@ import '../../../assets/styles/Certificates.css';
 import PaginationComponent from "./components/PaginationComponent";
 import LoadingSpinner from "./components/LoadingSpinner";
 import CertificateDefault from "../../../assets/images/certificate-default.png";
+import {useDispatch, useSelector} from "react-redux";
+import {setPage, setPageQtyWithParams} from "../../../store/pagination/PaginationAction";
 
 const Certificates = () => {
+    const FIRST_PAGE = 1;
     const [certificates, setCertificates] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
-    const [page, setPage] = useState(1);
-    const [size, setSize] = useState(10);
-    const [pageQty, setPageQty] = useState(1000);
+    const page = useSelector(state => state.paginationData.page);
+    const size = useSelector(state => state.paginationData.size);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(setPage(FIRST_PAGE));
+    }, []);
 
     useEffect(() => {
         setIsLoading(true);
@@ -22,10 +29,14 @@ const Certificates = () => {
                 setCertificates(response.data._embedded.giftCertificates);
                 setIsLoading(false);
             })
-            .catch(e => {
-                setIsLoading(false);
-            });
+            .catch(() => setIsLoading(false));
     }, [page, size]);
+
+    useEffect(() => {
+        CertificatesService.getCount()
+            .then(count => dispatch(setPageQtyWithParams(count.data, size)))
+            .catch(e => console.log(e));
+    }, [size]);
 
     const scrollToTop = () => {
         document.getElementById('items-grid-view').scrollTo({
@@ -33,13 +44,6 @@ const Certificates = () => {
             behavior: 'smooth',
         });
     };
-
-    const changePageHandler = (number) => {
-        setPage(number);
-        scrollToTop();
-    };
-
-    const changeSizeHandler = (number) => setSize(number);
 
     return (isLoading ? <LoadingSpinner/>
             : ((certificates.length === 0) ? <EmptyListCard/>
@@ -54,12 +58,7 @@ const Certificates = () => {
                                 />
                             )}
                         </div>
-                        <PaginationComponent
-                            page={page}
-                            pageQty={pageQty}
-                            size={size}
-                            pageHandler={changePageHandler}
-                            sizeHandler={changeSizeHandler}/>
+                        <PaginationComponent/>
                     </div>
                     <div className="scrollButton" onClick={scrollToTop}>
                         <ExpandLessIcon className={'expand-icon'}/>

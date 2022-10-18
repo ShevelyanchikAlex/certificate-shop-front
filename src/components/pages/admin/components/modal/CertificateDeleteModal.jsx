@@ -1,16 +1,19 @@
 import React from 'react';
 import '../../../../../assets/styles/CertificateDeleteModal.css';
 import CertificateService from "../../../../../service/CertificateService";
+import {useDispatch} from "react-redux";
+import {setPageRefresh} from "../../../../../store/admin/AdminAction";
 
-const CertificateDeleteModal = ({setVisible, id, setIsRefresh}) => {
+const CertificateDeleteModal = ({setVisible, id}) => {
     const changeVisibleHandler = () => setVisible(false);
+    const dispatch = useDispatch();
 
     const handleDelete = async (e) => {
         e.preventDefault();
         CertificateService.delete(id)
             .then(() => {
                 changeVisibleHandler();
-                setIsRefresh(true);
+                dispatch(setPageRefresh(true));
             })
             .catch(e => changeVisibleHandler());
     };

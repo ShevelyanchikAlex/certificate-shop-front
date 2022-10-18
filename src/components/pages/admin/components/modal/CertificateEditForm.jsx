@@ -6,8 +6,10 @@ import ModalFormErrorMessage from "./components/ModalFormErrorMessage";
 import {WithContext as ReactTags} from "react-tag-input";
 import '../../../../../assets/styles/CertificateForm.css';
 import CertificateService from "../../../../../service/CertificateService";
+import {useDispatch} from "react-redux";
+import {setPageRefresh} from "../../../../../store/admin/AdminAction";
 
-const CertificateEditForm = ({setVisible, certificateData, setIsRefresh}) => {
+const CertificateEditForm = ({setVisible, certificateData}) => {
     const [isValid, setIsValid] = useState(false);
     const [showAlert, setShowAlert] = useState(false);
     const [certificate, setCertificate] = useState({
@@ -19,43 +21,34 @@ const CertificateEditForm = ({setVisible, certificateData, setIsRefresh}) => {
     const [priceErrorMessage, setPriceErrorMessage] = useState('');
     const [durationErrorMessage, setDurationErrorMessage] = useState('');
     const [tagsErrorMessage, setTagsErrorMessage] = useState('');
+    const dispatch = useDispatch();
 
     useEffect(() => {
         if (certificateData) {
             setCertificate({
                 id: certificateData.id, name: certificateData.name, description: certificateData.description,
-                price: certificateData.price, duration: certificateData.duration, tags: certificateData.tags
+                price: certificateData.price, duration: certificateData.duration,
+                tags: certificateData.tags.map(tag => ({name: tag.name}))
             });
-            setTags(
-                certificateData.tags.map(tag => {
-                    return {
-                        id: tag.name,
-                        text: tag.name
-                    };
-                })
-            );
+            setTags(certificateData.tags.map(tag => ({id: tag.name, text: tag.name})));
         }
+    }, [certificateData]);
 
-    }, [setVisible, certificateData]);
-
-    const handleTagDelete = i => {
-        setTags(tags.filter((tag, index) => index !== i));
+    useEffect(() => {
+        setTags(tags);
         mapTagInCertificate();
+    }, [tags]);
+
+    const handleTagDelete = (i) => {
+        setTags(tags.filter((tag, index) => index !== i));
     };
 
-    const handleTagAdd = tag => {
+    const handleTagAdd = (tag) => {
         setTags([...tags, tag]);
-        mapTagInCertificate();
     };
 
     const mapTagInCertificate = () => {
-        setCertificate({
-            ...certificate, tags: tags.map(tag => {
-                return {
-                    name: tag.text
-                };
-            })
-        });
+        setCertificate({...certificate, tags: tags.map((tag) => ({name: tag.text}))});
     }
 
     const handleTagDrag = (tag, currPos, newPos) => {
@@ -114,13 +107,14 @@ const CertificateEditForm = ({setVisible, certificateData, setIsRefresh}) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        mapTagInCertificate();
         validateForm();
         if (isValid) {
             const request = getRequestCertificate();
             CertificateService.update(request)
                 .then(() => {
                     handleCloseForm();
-                    setIsRefresh(true);
+                    dispatch(setPageRefresh(true));
                 })
                 .catch(e => {
                     if (e.response.status === 400) {

@@ -44,11 +44,7 @@ class CertificateService {
     };
 
     static async getCount() {
-        return await axios.get(`${API_URL}/count`, {
-            headers: {
-                'Authorization': cookies.get("token"),
-            }
-        });
+        return await axios.get(`${API_URL}/count`);
     };
 }
 

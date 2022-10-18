@@ -2,14 +2,18 @@ import React, {useEffect} from 'react';
 import UserService from "../../../../service/UserService";
 import SearchBox from "./SearchBox";
 import {useDispatch, useSelector} from "react-redux";
-import { setFilteredUsers, setUsers} from "../../../../store/admin/AdminAction";
+import {setFilteredUsers, setUsers} from "../../../../store/admin/AdminAction";
+import PaginationComponent from "../../certificates/components/PaginationComponent";
+import {setPageQtyWithParams} from "../../../../store/pagination/PaginationAction";
 
-const UsersTable = ({page, size}) => {
+const UsersTable = () => {
     const users = useSelector(state => state.adminData.users);
     const filteredUsers = useSelector(state => state.adminData.filteredUsers);
     const searchTerm = useSelector(state => state.adminData.searchTerm);
     const selectedOpinion = useSelector(state => state.adminData.selectedOpinion);
     const usersOpinions = useSelector(state => state.adminData.usersOpinions);
+    const page = useSelector(state => state.paginationData.page);
+    const size = useSelector(state => state.paginationData.size);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -22,9 +26,14 @@ const UsersTable = ({page, size}) => {
     }, [page, size]);
 
     useEffect(() => {
+        UserService.getCount()
+            .then(count => dispatch(setPageQtyWithParams(count.data, size)))
+            .catch(e => console.log(e));
+    }, [size]);
+
+    useEffect(() => {
         dispatch(setFilteredUsers(searchTerm, users, selectedOpinion));
     }, [users, searchTerm]);
-
 
     return (
         <div>
@@ -57,6 +66,7 @@ const UsersTable = ({page, size}) => {
                 )}
                 </tbody>
             </table>
+            <PaginationComponent/>
         </div>
     );
 };

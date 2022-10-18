@@ -12,8 +12,10 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import SearchBox from "./SearchBox";
 import {useDispatch, useSelector} from "react-redux";
 import * as adminActions from "../../../../store/admin/AdminAction";
+import PaginationComponent from "../../certificates/components/PaginationComponent";
+import {setPageQtyWithParams} from "../../../../store/pagination/PaginationAction";
 
-const CertificatesTable = ({page, size}) => {
+const CertificatesTable = () => {
     const certificates = useSelector(state => state.adminData.certificates);
     const filteredCertificates = useSelector(state => state.adminData.filteredCertificates);
     const selectedCertificate = useSelector(state => state.adminData.selectedCertificate);
@@ -22,6 +24,8 @@ const CertificatesTable = ({page, size}) => {
     const searchTerm = useSelector(state => state.adminData.searchTerm);
     const selectedOpinion = useSelector(state => state.adminData.selectedOpinion);
     const certificatesOpinions = useSelector(state => state.adminData.certificatesOpinions);
+    const page = useSelector(state => state.paginationData.page);
+    const size = useSelector(state => state.paginationData.size);
     const [isAddCertificateModalVisible, setAddCertificateModalVisible] = useState(false);
     const [isViewCertificateModalVisible, setViewCertificateModalVisible] = useState(false);
     const [isEditCertificateModalVisible, setEditCertificateModalVisible] = useState(false);
@@ -37,6 +41,12 @@ const CertificatesTable = ({page, size}) => {
             })
             .catch(e => console.log(e));
     }, [page, size, isPageRefresh]);
+
+    useEffect(() => {
+        CertificatesService.getCount()
+            .then(count => dispatch(setPageQtyWithParams(count.data, size)))
+            .catch(e => console.log(e));
+    }, [size]);
 
     useEffect(() => {
         dispatch(adminActions.setFilteredCertificates(searchTerm, certificates, selectedOpinion));
@@ -140,6 +150,7 @@ const CertificatesTable = ({page, size}) => {
                     </tr>)}
                 </tbody>
             </table>
+            <PaginationComponent/>
         </div>
     );
 };

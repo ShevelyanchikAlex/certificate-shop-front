@@ -1,7 +1,5 @@
 # Gift Certificate Shop (Front)
 
-Copyright &copy; 2022, Aliaksandr Shavialianchyk shevelyanchik.alex@gmail.com
-
 ## Description
 
 Web application that performs the functionality of an online store of gift certificates. This application contains both

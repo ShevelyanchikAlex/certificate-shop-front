@@ -32,22 +32,27 @@ This web-app service includes the following pages and corresponding functionalit
 On this Page You can view actual gift certificates and view info about specific ones details. It is possible to go to
 the next pages: About the Application, Signup, Authentication. After successful authentication You will be able to go to
 the shopping cart and to your personal account or logout.
+![HomePage](src/assets/example-images/home-page-example.png)
 
 ### About the Application
 
 On this Page You can view info about Gift Certificate Shop.
+![About the Application](src/assets/example-images/about-example.png)
+
 
 ### Signup
 
 On this Page You can fill the information about yourself required in the form and register in the application. After
 successful registration you will be redirected to the lLogin page. All fields of the registration form are validated so
 if any error occurs, a message will immediately be displayed to eliminate it.
+![Signup](src/assets/example-images/register-example.png)
 
 ### Authentication
 
 On this Page You can fill required account information. Once logged in You will have access to all pages that require
 authentication. This Login page also uses some cool inline validation with informing about errors and ways to eliminate
 them.
+![Login](src/assets/example-images/login-example.png)
 
 ### Profile
 

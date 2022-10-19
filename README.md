@@ -48,7 +48,7 @@ On this Page You can view info about Gift Certificate Shop.
 ### Signup
 
 On this Page You can fill the information about yourself required in the form and register in the application. After
-successful registration you will be redirected to the lLogin page. All fields of the registration form are validated so
+successful registration you will be redirected to the Login page. All fields of the registration form are validated so
 if any error occurs, a message will immediately be displayed to eliminate it.
 
 ![Signup](src/assets/example-images/register-example.png)

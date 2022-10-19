@@ -35,12 +35,17 @@ the shopping cart and to your personal account or logout.
 
 ![HomePage](src/assets/example-images/home-page-example.png)
 
+### Certificate Info
+
+On this Page You can view details of selected gift certificate.
+
+![Certificate Item](src/assets/example-images/certificate-item-example.png)
+
 ### About the Application
 
 On this Page You can view info about Gift Certificate Shop.
 
 ![About the Application](src/assets/example-images/about-example.png)
-
 
 ### Signup
 
@@ -80,22 +85,38 @@ certificates.
 ![Admin Certificates](src/assets/example-images/admin-certificates-example.png)
 
 1. Add new Gift Certificate
-![Admin Add Certificate](src/assets/example-images/add-certificate-example.png)
+   ![Admin Add Certificate](src/assets/example-images/add-certificate-example.png)
 
 2. Edit Gift Certificate
-![Admin Edit Certificate](src/assets/example-images/edit-certificate-example.png)
+   ![Admin Edit Certificate](src/assets/example-images/edit-certificate-example.png)
 
 3. View Gift Certificate
-![Admin View Certificate](src/assets/example-images/view-certificate-example.png)
+   ![Admin View Certificate](src/assets/example-images/view-certificate-example.png)
 
 4. Delete Gift Certificate
-![Admin Delete Certificate](src/assets/example-images/delete-certificate-example.png)
+   ![Admin Delete Certificate](src/assets/example-images/delete-certificate-example.png)
 
 ### Users Management (Admin)
 
 On this Page You can view all actual users, get information about each of them, search by search term and category.
 
 ![Admin Delete Certificate](src/assets/example-images/admin-users-example.png)
+
+### Errors Handling
+
+This Application handles all errors that occur. An example of processing some of them can be seen below.
+
+* Page Not Found
+  ![404](src/assets/example-images/404-example.png)
+
+
+* Forbidden
+  ![403](src/assets/example-images/403-example.png)
+
+* If an error occurs on the server side when transmitting data about certificates or the list of certificates is really
+  empty, the following window is displayed
+  ![empty-list](src/assets/example-images/empty-list-example.png)
+
 
 ***
 

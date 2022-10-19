@@ -80,16 +80,22 @@ certificates.
 ![Admin Certificates](src/assets/example-images/admin-certificates-example.png)
 
 1. Add new Gift Certificate
+![Admin Add Certificate](src/assets/example-images/add-certificate-example.png)
 
 2. Edit Gift Certificate
+![Admin Edit Certificate](src/assets/example-images/edit-certificate-example.png)
 
 3. View Gift Certificate
+![Admin View Certificate](src/assets/example-images/view-certificate-example.png)
 
 4. Delete Gift Certificate
+![Admin Delete Certificate](src/assets/example-images/delete-certificate-example.png)
 
 ### Users Management (Admin)
 
 On this Page You can view all actual users, get information about each of them, search by search term and category.
+
+![Admin Delete Certificate](src/assets/example-images/admin-users-example.png)
 
 ***
 

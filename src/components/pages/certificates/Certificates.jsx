@@ -8,19 +8,14 @@ import PaginationComponent from "./components/PaginationComponent";
 import LoadingSpinner from "./components/LoadingSpinner";
 import CertificateDefault from "../../../assets/images/certificate-default.png";
 import {useDispatch, useSelector} from "react-redux";
-import {setPage, setPageQtyWithParams} from "../../../store/pagination/PaginationAction";
+import {setPageQtyWithParams} from "../../../store/pagination/PaginationAction";
 
 const Certificates = () => {
-    const FIRST_PAGE = 1;
     const [certificates, setCertificates] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const page = useSelector(state => state.paginationData.page);
     const size = useSelector(state => state.paginationData.size);
     const dispatch = useDispatch();
-
-    useEffect(() => {
-        dispatch(setPage(FIRST_PAGE));
-    }, []);
 
     useEffect(() => {
         setIsLoading(true);

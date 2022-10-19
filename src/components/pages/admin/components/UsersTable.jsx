@@ -4,10 +4,9 @@ import SearchBox from "./SearchBox";
 import {useDispatch, useSelector} from "react-redux";
 import {setFilteredUsers, setUsers} from "../../../../store/admin/AdminAction";
 import PaginationComponent from "../../certificates/components/PaginationComponent";
-import {setPage, setPageQtyWithParams} from "../../../../store/pagination/PaginationAction";
+import {setPageQtyWithParams} from "../../../../store/pagination/PaginationAction";
 
 const UsersTable = () => {
-    const FIRST_PAGE = 1;
     const users = useSelector(state => state.adminData.users);
     const filteredUsers = useSelector(state => state.adminData.filteredUsers);
     const searchTerm = useSelector(state => state.adminData.searchTerm);
@@ -16,10 +15,6 @@ const UsersTable = () => {
     const page = useSelector(state => state.paginationData.page);
     const size = useSelector(state => state.paginationData.size);
     const dispatch = useDispatch();
-
-    useEffect(() => {
-        dispatch(setPage(FIRST_PAGE));
-    }, []);
 
     useEffect(() => {
         UserService.getAllUsers(page, size)

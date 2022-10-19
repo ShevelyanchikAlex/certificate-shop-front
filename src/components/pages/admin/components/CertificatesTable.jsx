@@ -13,11 +13,10 @@ import SearchBox from "./SearchBox";
 import {useDispatch, useSelector} from "react-redux";
 import * as adminActions from "../../../../store/admin/AdminAction";
 import PaginationComponent from "../../certificates/components/PaginationComponent";
-import {setPage, setPageQtyWithParams} from "../../../../store/pagination/PaginationAction";
+import {setPageQtyWithParams} from "../../../../store/pagination/PaginationAction";
 import {setPageRefresh} from "../../../../store/admin/AdminAction";
 
 const CertificatesTable = () => {
-    const FIRST_PAGE = 1;
     const certificates = useSelector(state => state.adminData.certificates);
     const filteredCertificates = useSelector(state => state.adminData.filteredCertificates);
     const selectedCertificate = useSelector(state => state.adminData.selectedCertificate);
@@ -33,10 +32,6 @@ const CertificatesTable = () => {
     const [isEditCertificateModalVisible, setEditCertificateModalVisible] = useState(false);
     const [isDeleteCertificateModalVisible, setDeleteCertificateModalVisible] = useState(false);
     const dispatch = useDispatch();
-
-    useEffect(() => {
-        dispatch(setPage(FIRST_PAGE));
-    }, []);
 
     useEffect(() => {
         dispatch(setPageRefresh(false));

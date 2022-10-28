@@ -1,0 +1,160 @@
+.register-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 5px 4px 8px 0 rgba(0, 0, 0, 0.3);
+}
+
+.register-container h1 {
+    text-align: center;
+    padding: 0 0 20px 0;
+    border-bottom: 1px solid silver;
+    color: #2691d9;
+}
+
+.register-container form {
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.register-container form .column {
+    float: left;
+    width: 50%;
+}
+
+.register-container form .input-field {
+    position: relative;
+    border-bottom: 2px solid #adadad;
+    margin: 30px;
+}
+
+.register-container form .input-field input {
+    width: 100%;
+    padding: 0 5px;
+    height: 40px;
+    font-size: 1rem;
+    border: none;
+    background: none;
+    outline: none;
+}
+
+.register-container form .input-field label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    color: #adadad;
+    transform: translateY(-50%);
+    font-size: 1rem;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.register-container form .input-field span::before {
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #2691d9;
+    transition: .5s;
+}
+
+.register-container form input:focus ~ label,
+.register-container form input:valid ~ label {
+    top: -5px;
+    color: #2691d9;
+}
+
+.register-container form input:focus ~ span::before,
+.register-container form input:valid ~ span::before {
+    width: 100%;
+}
+
+
+.buttons-column {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
+
+.button {
+    text-align: center;
+    float: right;
+    margin: 3%;
+}
+
+.register-button {
+    float: right;
+    width: 110px;
+    height: 50px;
+    border: 1px solid #2691d9;
+    background: #2691d9;
+    border-radius: 20px;
+    font-size: 1.2rem;
+    color: #e9f4fb;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+    padding: 10px;
+}
+
+.register-button:hover {
+    opacity: 0.9;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+    transition: .5s;
+}
+
+.cancel-button {
+    border: 1px solid #2691d9;
+    border-radius: 20px;
+    padding: 10px;
+    color: #2691d9;
+    background-color: #fff;
+    text-align: center;
+    cursor: pointer;
+    margin: 0 2%;
+    float: left;
+    width: 110px;
+    height: 50px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    outline: none;
+    text-decoration: none;
+}
+
+.cancel-button:hover {
+    opacity: 0.9;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+    transition: .5s;
+}
+
+.error-message {
+    padding: 0;
+    margin: 20px 0;
+    color: #FA8072;
+}
+
+.alert-container {
+    border-radius: 20px;
+    background: #FA8072;
+    color: #ffffff;
+    margin: 1% 5%;
+}
+
+.alert-message {
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 10px;
+}
